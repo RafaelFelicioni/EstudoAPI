@@ -26,9 +26,7 @@ namespace APIControllers.Controllers
             webHostEnvironment = environment;
         }
 
-        //public ReservationController(IRepository repo) => repository = repo;
-
-        //[Produces("application/xml")]
+        
         [HttpGet]
         public IEnumerable<Reservation> Get() => repository.Reservations;
 
@@ -44,18 +42,7 @@ namespace APIControllers.Controllers
             EndLocation = res.EndLocation
         });
 
-        /*[HttpPost]
-        public IActionResult Post([FromBody] Reservation res)
-        {
-            if (!Authenticate())
-                return Unauthorized();
-            return Ok(repository.AddReservation(new Reservation
-            {
-                Name = res.Name,
-                StartLocation = res.StartLocation,
-                EndLocation = res.EndLocation
-            }));
-        }*/
+        
 
         [HttpPut]
         public Reservation Put([FromForm] Reservation res) => repository.UpdateReservation(res);
